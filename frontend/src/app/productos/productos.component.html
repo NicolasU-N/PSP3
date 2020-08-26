@@ -1,0 +1,53 @@
+<main>
+  <section class="section section-shaped section-lg" style=" background-size: cover; height: 100vh;">
+    <div class="shape shape-style-1 bg-gradient-default">
+    </div>
+    <div class="container ">
+      <div class="row justify-content-center">
+        <div class="col-lg-11">
+          <div class="card bg-secondary shadow border-0 mt-5">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="col-sm-9 ml-lg-auto">
+                <h1 class="mb-0" style="color:white !important">Inventario de productos</h1>
+              </div>
+              <br />
+              <button class="btn btn-icon btn-3 btn-primary mb-3" type="button" [routerLink]="['/formProducto']">
+                <span class="btn-inner--icon"><i class="ni ni-folder-17"></i></span>
+                <span class="btn-inner--text"> Registrar Productos</span>
+              </button>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productos">
+                    <th scope="row" style="color:white !important">{{ producto.id }}</th>
+                    <td style="color:white !important"> {{ producto.descripcion }}</td>
+                    <td style="color:white !important">{{ producto.precio }}</td>
+                    <td style="color:white !important">{{ producto.cantidad }}</td>
+                    <td style="color:white !important">{{ producto.state }}</td>
+                    <td>
+                      <button class="btn btn-1 btn-warning" type="button" name="button"
+                        [routerLink]="['/productoComponent/formProducto', producto.id]">Editar</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-1 btn-danger" type="button" (click)="delete(producto)">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
